@@ -192,81 +192,86 @@
       </v-col>
     </v-row>
 
-    <!-- Piąty rząd - cyfry 1,2,3 -->
-    <v-row dense class="mb-2">
-      <v-col cols="3">
-        <v-btn
-          @click="calculatorStore.inputNumber('1')"
-          color="blue-grey darken-1"
-          variant="elevated"
-          block
-          class="calculator-btn number-btn"
-        >
-          1
-        </v-btn>
+    <!-- Piąty i szósty rząd - cyfry 1,2,3 oraz 0,. z przyciskiem = -->
+    <v-row dense>
+      <v-col cols="9">
+        <!-- Lewy blok z cyframi 1,2,3 oraz 0,. -->
+        <v-row dense class="mb-2">
+          <v-col cols="4">
+            <v-btn
+              @click="calculatorStore.inputNumber('1')"
+              color="blue-grey darken-1"
+              variant="elevated"
+              block
+              class="calculator-btn number-btn"
+            >
+              1
+            </v-btn>
+          </v-col>
+          <v-col cols="4">
+            <v-btn
+              @click="calculatorStore.inputNumber('2')"
+              color="blue-grey darken-1"
+              variant="elevated"
+              block
+              class="calculator-btn number-btn"
+            >
+              2
+            </v-btn>
+          </v-col>
+          <v-col cols="4">
+            <v-btn
+              @click="calculatorStore.inputNumber('3')"
+              color="blue-grey darken-1"
+              variant="elevated"
+              block
+              class="calculator-btn number-btn"
+            >
+              3
+            </v-btn>
+          </v-col>
+        </v-row>
+        
+        <!-- Rząd z 0 i . -->
+        <v-row dense>
+          <v-col cols="8">
+            <v-btn
+              @click="calculatorStore.inputNumber('0')"
+              color="blue-grey darken-1"
+              variant="elevated"
+              block
+              class="calculator-btn number-btn"
+            >
+              0
+            </v-btn>
+          </v-col>
+          <v-col cols="4">
+            <v-btn
+              @click="calculatorStore.inputDecimal"
+              color="blue-grey darken-1"
+              variant="elevated"
+              block
+              class="calculator-btn"
+            >
+              .
+            </v-btn>
+          </v-col>
+        </v-row>
       </v-col>
+      
+      <!-- Przycisk = po prawej -->
       <v-col cols="3">
-        <v-btn
-          @click="calculatorStore.inputNumber('2')"
-          color="blue-grey darken-1"
-          variant="elevated"
-          block
-          class="calculator-btn number-btn"
-        >
-          2
-        </v-btn>
-      </v-col>
-      <v-col cols="3">
-        <v-btn
-          @click="calculatorStore.inputNumber('3')"
-          color="blue-grey darken-1"
-          variant="elevated"
-          block
-          class="calculator-btn number-btn"
-        >
-          3
-        </v-btn>
-      </v-col>
-      <v-col cols="3" class="d-flex flex-column">
         <v-btn
           @click="calculatorStore.equals"
           color="green darken-1"
           variant="elevated"
           block
-          class="calculator-btn equals-btn flex-grow-1"
+          class="calculator-btn equals-btn"
           style="height: 146px;"
         >
           =
         </v-btn>
       </v-col>
-    </v-row>
-
-    <!-- Szósty rząd - 0 i przecinek -->
-    <v-row dense>
-      <v-col cols="6">
-        <v-btn
-          @click="calculatorStore.inputNumber('0')"
-          color="blue-grey darken-1"
-          variant="elevated"
-          block
-          class="calculator-btn number-btn"
-        >
-          0
-        </v-btn>
-      </v-col>
-      <v-col cols="3">
-        <v-btn
-          @click="calculatorStore.inputDecimal"
-          color="blue-grey darken-1"
-          variant="elevated"
-          block
-          class="calculator-btn"
-        >
-          .
-        </v-btn>
-      </v-col>
-      <!-- Pusta kolumna, bo przycisk = jest wyżej -->
-      <v-col cols="3"></v-col>
     </v-row>
   </v-container>
 </template>
