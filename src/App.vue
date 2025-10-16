@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import CalculatorWithKeyboard from './components/CalculatorWithKeyboard.vue'
+import CommitInfo from './components/CommitInfo.vue'
 </script>
 
 <template>
@@ -7,6 +8,7 @@ import CalculatorWithKeyboard from './components/CalculatorWithKeyboard.vue'
     <v-main>
       <CalculatorWithKeyboard />
     </v-main>
+    <CommitInfo />
   </v-app>
 </template>
 
