@@ -16,19 +16,12 @@ import CommitInfo from './components/CommitInfo.vue'
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  background-color: rgba(1,1,1,0.8);
   min-height: 100vh;
 }
 
-.v-application {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-}
 
 .v-main {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-}
-
-html {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  background-color: rgba(1,1,1,0.8);
 }
 </style>
