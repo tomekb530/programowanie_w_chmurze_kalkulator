@@ -74,13 +74,13 @@
       </v-col>
       <v-col cols="3">
         <v-btn
-          @click="calculatorStore.negate"
+          @click="calculatorStore.performOperation('^')"
           color="indigo darken-1"
           variant="elevated"
           block
-          class="calculator-btn"
+          class="calculator-btn operator-btn"
         >
-          ±
+          x^y
         </v-btn>
       </v-col>
       <v-col cols="3">

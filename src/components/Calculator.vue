@@ -21,7 +21,7 @@
       
       <!-- Historia po prawej stronie -->
       <v-col 
-        v-if="calculatorStore.history.length > 0" 
+        v-if="hasHistory" 
         cols="12" 
         md="6" 
         lg="4" 
@@ -43,12 +43,37 @@
 </template>
 
 <script setup lang="ts">
+import { computed, onMounted } from 'vue'
 import { useCalculatorStore } from '../stores/calculator'
+import { useAuthStore } from '../stores/auth'
 import CalculatorDisplay from './CalculatorDisplay.vue'
 import CalculatorButtons from './CalculatorButtons.vue'
 import CalculatorHistory from './CalculatorHistory.vue'
+import { watch } from 'vue'
 
 const calculatorStore = useCalculatorStore()
+const authStore = useAuthStore()
+
+// Load API history when user is authenticated
+onMounted(() => {
+  if (authStore.isAuthenticated) {
+    calculatorStore.loadApiHistory()
+  }
+})
+
+watch(
+  () => authStore.isAuthenticated,
+  (isAuthenticated) => {
+    if (isAuthenticated) {
+      calculatorStore.loadApiHistory()
+    }
+  }
+)
+
+const hasHistory = computed(() => {
+  return calculatorStore.history.length > 0 || 
+         (authStore.isAuthenticated && calculatorStore.apiHistory.length > 0)
+})
 </script>
 
 <style scoped>

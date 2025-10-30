@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
+import { onMounted } from 'vue'
 import { useCalculatorStore } from '../stores/calculator'
 import Calculator from './Calculator.vue'
 
@@ -53,6 +53,9 @@ const handleKeydown = (event: KeyboardEvent) => {
       break
     case '%':
       calculatorStore.percentage()
+      break
+    case '^':
+      calculatorStore.performOperation('^')
       break
   }
 }
