@@ -255,14 +255,19 @@ const formatDate = (dateString: string) => {
 .history-list {
   max-height: 500px;
   overflow-y: auto;
-  background: rgba(255, 255, 255, 0.05);
+  /* Darker background so icons and text contrast better */
+  background: rgba(0, 0, 0, 0.65);
   border-radius: 10px;
   margin-bottom: 10px;
+  padding: 8px;
 }
 
 .history-item {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .history-item:last-child {
@@ -275,6 +280,23 @@ const formatDate = (dateString: string) => {
   color: white;
   font-size: 0.95rem;
   line-height: 1.4;
+}
+
+/* Make icons more readable against the darker background */
+.history-item .v-icon {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 6px;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.history-item:hover {
+  background: rgba(255, 255, 255, 0.02);
 }
 
 /* Stylizacja scrollbara */
