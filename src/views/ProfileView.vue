@@ -121,7 +121,7 @@
             <v-list v-else-if="calculatorStore.apiHistory.length > 0" lines="two">
               <v-list-item
                 v-for="item in calculatorStore.apiHistory.slice(0, 20)"
-                :key="item.id"
+                :key="item._id"
               >
                 <template v-slot:prepend>
                   <v-icon>{{ getOperationIcon(item.operation) }}</v-icon>
