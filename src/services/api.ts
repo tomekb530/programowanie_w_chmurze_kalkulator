@@ -55,12 +55,15 @@ class ApiService {
         }
       }
 
-      return {
+      const result = {
         success: true,
         data: data?.data || data, // Extract nested data if it exists
         message: data?.message
       }
+      console.log('API makeRequest result:', result)
+      return result
     } catch (error) {
+      console.error('API makeRequest error:', error)
       return {
         success: false,
         error: error instanceof Error ? error.message : 'Network error'

@@ -63,7 +63,7 @@ export const useAuthStore = defineStore('auth', () => {
       // Load profile which already contains stats
       const profileResponse = await apiService.getProfile()
       
-      if (profileResponse.success && profileResponse.data) {
+      if (profileResponse && profileResponse.success && profileResponse.data) {
         // Profile response has nested structure: data.user and data.stats
         const userData: UserProfile = { ...profileResponse.data.user }
         
