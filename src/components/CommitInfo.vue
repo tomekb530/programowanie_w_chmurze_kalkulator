@@ -9,7 +9,7 @@
         Frontend: Development Mode
       </span>
       <span v-if="buildDate" class="build-date">
-        Date: {{ buildDate }}
+        Date: {{ formatDate(buildDate) }}
       </span>
       
       <!-- Backend info -->
