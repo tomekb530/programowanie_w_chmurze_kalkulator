@@ -102,10 +102,10 @@
           Brak historii obliczeń w chmurze
         </v-alert>
 
+      </v-tabs-window-item>
         <v-alert v-if="calculatorStore.error" type="error" variant="outlined" class="mt-3">
           {{ calculatorStore.error }}
         </v-alert>
-      </v-tabs-window-item>
     </v-tabs-window>
 
     <!-- Simple history view for non-authenticated users -->
