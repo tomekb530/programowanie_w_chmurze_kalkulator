@@ -27,7 +27,7 @@ Object.defineProperty(window, 'localStorage', {
 })
 
 // Mock dla fetch
-global.fetch = vi.fn()
+globalThis.fetch = vi.fn()
 
 // Mock dla API service globalnie
 vi.mock('@/services/api', () => ({
