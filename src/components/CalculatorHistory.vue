@@ -6,7 +6,7 @@
         color="red"
         size="small"
       >
-        🗑️ Wyczyść historię
+        🗑️ Wyczyść historię lokalną
       </v-btn>
 
       <v-btn
