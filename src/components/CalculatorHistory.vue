@@ -8,7 +8,7 @@
       >
         🗑️ Wyczyść historię
       </v-btn>
-      
+
       <v-btn
         v-if="authStore.isAuthenticated"
         @click="refreshApiHistory"
@@ -27,7 +27,7 @@
       <v-tab value="local">Lokalne</v-tab>
       <v-tab value="cloud">Chmura</v-tab>
     </v-tabs>
-    
+
     <v-tabs-window v-if="authStore.isAuthenticated" v-model="activeTab">
       <!-- Local history tab -->
       <v-tabs-window-item value="local">
@@ -40,11 +40,11 @@
             <template #prepend>
               <v-icon color="primary">mdi-calculator-variant</v-icon>
             </template>
-            
+
             <v-list-item-title class="calculation-text">
               {{ calculation }}
             </v-list-item-title>
-            
+
             <template #append>
               <v-chip
                 size="small"
@@ -56,16 +56,16 @@
             </template>
           </v-list-item>
         </v-list>
-        
+
         <v-alert v-else type="info" variant="outlined" class="mt-3" color="primary">
           Brak lokalnej historii obliczeń
         </v-alert>
       </v-tabs-window-item>
-      
+
       <!-- Cloud history tab -->
       <v-tabs-window-item value="cloud">
         <v-progress-linear v-if="calculatorStore.isLoading" indeterminate class="mb-3" />
-        
+
         <v-list v-if="calculatorStore.apiHistory.length > 0" class="history-list">
           <v-list-item
             v-for="calculation in calculatorStore.apiHistory.slice(-20).reverse()"
@@ -77,15 +77,15 @@
                 {{ getOperationIcon(calculation.operation) }}
               </v-icon>
             </template>
-            
+
             <v-list-item-title class="calculation-text">
               {{ formatCalculation(calculation) }}
             </v-list-item-title>
-            
+
             <v-list-item-subtitle class="text-caption">
               {{ formatDate(calculation.timestamp) }}
             </v-list-item-subtitle>
-            
+
             <template #append>
               <v-chip
                 size="small"
@@ -97,17 +97,17 @@
             </template>
           </v-list-item>
         </v-list>
-        
+
         <v-alert v-else-if="!calculatorStore.isLoading" type="info" variant="outlined" class="mt-3">
           Brak historii obliczeń w chmurze
         </v-alert>
-        
+
         <v-alert v-if="calculatorStore.error" type="error" variant="outlined" class="mt-3">
           {{ calculatorStore.error }}
         </v-alert>
       </v-tabs-window-item>
     </v-tabs-window>
-    
+
     <!-- Simple history view for non-authenticated users -->
     <div v-else>
       <v-list v-if="calculatorStore.history.length > 0" class="history-list">
@@ -119,11 +119,11 @@
           <template #prepend>
             <v-icon color="primary">mdi-calculator-variant</v-icon>
           </template>
-          
+
           <v-list-item-title class="calculation-text">
             {{ calculation }}
           </v-list-item-title>
-          
+
           <template #append>
             <v-chip
               size="small"
@@ -135,7 +135,7 @@
           </template>
         </v-list-item>
       </v-list>
-      
+
       <v-alert v-else type="info" variant="outlined" class="mt-3">
         Brak historii obliczeń
       </v-alert>
@@ -163,7 +163,7 @@ const refreshApiHistory = () => {
 
 const formatCalculation = (item: HistoryEntry) => {
   const symbol = getOperationSymbol(item.operation)
-  
+
   // Handle new operands structure with a and b properties
   if (item.operation === 'sqrt' && item.operands.a !== undefined) {
     return `${symbol}${item.operands.a} = ${item.result}`
