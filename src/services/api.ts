@@ -7,7 +7,8 @@ import type {
   HistoryEntry, 
   StatsResponse,
   UserProfile,
-  ProfileResponse
+  ProfileResponse,
+  BackendInfoResponse
 } from './types'
 
 class ApiService {
@@ -162,6 +163,10 @@ class ApiService {
 
   async getStats(): Promise<ApiResponse<StatsResponse>> {
     return this.makeRequest<StatsResponse>('/api/calculator/stats')
+  }
+
+  async getBackendInfo(): Promise<ApiResponse<BackendInfoResponse>> {
+    return this.makeRequest<BackendInfoResponse>('/')
   }
 }
 

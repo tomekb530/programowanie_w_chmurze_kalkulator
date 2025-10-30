@@ -92,3 +92,16 @@ export interface ProfileResponse {
   user: UserProfile;
   stats: StatsResponse;
 }
+
+export interface BackendCommitInfo {
+  hash: string;
+  shortHash: string;
+  branch: string;
+  author: string;
+  date: string;
+  message: string;
+}
+
+export interface BackendInfoResponse {
+  commit: BackendCommitInfo;
+}
